@@ -1,76 +1,10 @@
+import React from 'react'; // Added React import
 import { Briefcase, GraduationCap } from 'lucide-react';
-
-interface TimelineItem {
-  type: 'education' | 'experience';
-  title: string;
-  organization: string;
-  period: string;
-  description: string;
-  achievements?: string[];
-}
+import { TIMELINE_DATA, TimelineItem } from '../data/TimelineData';
 
 const Timeline = () => {
-  const timelineData: TimelineItem[] = [
-    {
-      type: 'experience',
-      title: 'Master Thesis Student',
-      organization: <a href="https://www.ika.rwth-aachen.de/en/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Institute for Automotive Engineering</a>,
-      period: '2024 - 2025',
-      description: 'Developed a Python-based framework for harmonizing, enriching, and classifying behavioral driving data.',
-      achievements: [
-        'Tested and validated the harmonization framework with three real-world public datasets',
-        'Enriched behavioral data with environmental context information',
-        'Detected over 43K maneuvers and 300K vehicle-to-vehicle (V2V) interaction scenarios',
-        'Achieved a top grade (1.0) for the thesis work'
-      ]
-    },
-    {
-      type: 'experience',
-      title: 'Software Developer (Student Team Member)',
-      organization: <a href="https://galaxis.rwth-aachen.de/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Team GalaXIs, RWTH Aachen University</a>,
-      period: '2022 - 2024',
-      description: 'Developed software modules for 1:10 scale autonomous vehicles',
-      achievements: [
-        'Built a real-time semantic segmentation module with BEV transformation',
-        'Implemented motion planning using semantic grids to optimize trajectories based on drivable and non-drivable areas.',
-        'Created comprehensive training pipelines with dataset preparation, labeling, and augmentation.',
-      ]
-    },
-    {
-      type: 'education',
-      title: 'Master of Science in Automotive Engineering',
-      organization: 'RWTH Aachen University',
-      period: '2021 - 2025',
-      description: 'Specialized in Automated Driving',
-      achievements: [
-        'GPA: 2.1 (Good, German system)',
-        'Knowledge Areas: Automated and Connected Driving, ADAS, Control Engineering, Mechatronics'
-      ]
-    },
-    {
-      type: 'experience',
-      title: 'Executive Engineer',
-      organization: 'Rancon Auto Industries Limited, Bangladesh',
-      period: '2018 - 2021',
-      description: 'Worked on vehicle assembly for passenger and commercial vehicles.',
-      achievements: [
-        'Performed quality checks and maintenance measures, including fault diagnosis, functional testing, and documentation per OEM standards',
-        'Managed materials and parts, including inventory tracking and coordinating supply for assembly and testing'
-      ]
-    },
-    {
-      type: 'education',
-      title: 'Bachelor of Science in Mechanical Engineering',
-      organization: 'Bangladesh Univeristy of Engineering and Technology',
-      period: '2012 - 2017',
-      description: 'Focused on core engineering fundamentals',
-      achievements: [
-        'GPA: 3.03/4.0',
-        '2nd place in a microcontroller-based project competition',
-        'President of university blood donor organization'
-      ]
-    }
-  ];
+  // The data is now imported, not defined here
+  const timelineData: TimelineItem[] = TIMELINE_DATA;
 
   return (
     <section id="timeline" className="py-20 bg-gray-800">
@@ -111,7 +45,24 @@ const Timeline = () => {
                       </div>
 
                       <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-blue-400 font-semibold mb-3">{item.organization}</p>
+                      
+                      {/* --- THIS IS THE KEY CHANGE --- */}
+                      <p className="text-blue-40auto font-semibold mb-3">
+                        {item.organizationLink ? (
+                          <a
+                            href={item.organizationLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:underline"
+                          >
+                            {item.organization}
+                          </a>
+                        ) : (
+                          <span className="text-blue-400">{item.organization}</span>
+                        )}
+                      </p>
+                      {/* --- END OF CHANGE --- */}
+
                       <p className="text-gray-300 mb-4">{item.description}</p>
 
                       {item.achievements && item.achievements.length > 0 && (

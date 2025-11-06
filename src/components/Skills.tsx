@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-//import type { SkillCategory } from '../../types';
+import { SKILLS, SkillCategory } from '../data/SkillsData';
 
-// ----------------- ICONS -----------------
-
-export type SkillCategory = 'Programming Languages' | 'Frontend' | 'Backend' | 'AI & Robotics' | 'Databases' | 'Tools & DevOps' | 'Simulation' | 'CAD';
-
+// ----------------- 2. ICONS -----------------
+// All icon components are now defined in the component file
 const SimulationIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 8V4H8" />
@@ -37,47 +35,32 @@ const FusionIcon = () => <img src="https://upload.wikimedia.org/wikipedia/common
 const CarlaIcon = () => <img src="https://carla.org//img/logo/carla-black-m.png" alt="CARLA Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(2.0)' }} />;
 const IsaacSimIcon = () => <img src="https://assets.nvidiagrid.net/ngc/logos/Isaac.png" alt="NVIDIA Isaac Sim Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(3.0)' }} />;
 
-// ----------------- SKILLS -----------------
-const SKILLS: { [key in SkillCategory]: { name: string; icon: JSX.Element }[] } = {
-  'Programming Languages': [
-    { name: 'Python', icon: <PythonIcon /> },
-    { name: 'C++', icon: <CppIcon /> },
-    { name: 'Java', icon: <JavaIcon /> },
-    { name: 'TypeScript', icon: <TypeScriptIcon /> },
-    { name: 'MATLAB', icon: <MatlabIcon /> },
-  ],
-  Frontend: [
-    { name: 'React', icon: <ReactIcon /> },
-    { name: 'Next.js', icon: <NextjsIcon /> },
-    { name: 'Tailwind CSS', icon: <TailwindIcon /> },
-  ],
-  Backend: [
-    { name: 'Node.js', icon: <NodeIcon /> },
-    { name: 'Express', icon: <ExpressIcon /> },
-  ],
-  'AI & Robotics': [
-    { name: 'ROS/ROS2', icon: <RosIcon /> },
-    { name: 'Tensorflow', icon: <TensorflowIcon /> },
-    { name: 'Pytorch', icon: <PytorchIcon /> },
-  ],
-  Databases: [
-    { name: 'PostgreSQL', icon: <PostgresIcon /> },
-    { name: 'MongoDB', icon: <MongoIcon /> },
-  ],
-  'Tools & DevOps': [
-    { name: 'Git & GitHub', icon: <GithubIcon /> },
-    { name: 'Docker', icon: <DockerIcon /> },
-    { name: 'Linux', icon: <LinuxIcon /> },
-  ],
-  Simulation: [
-    { name: 'CARLA', icon: <CarlaIcon /> },
-    { name: 'Nvidia Isaac Sim', icon: <IsaacSimIcon /> },
-    { name: 'AVL Scenario Simulator', icon: <SimulationIcon /> },
-  ],
-  CAD: [
-    { name: 'SolidWorks', icon: <SolidworksIcon /> },
-    { name: 'Fusion 360', icon: <FusionIcon /> },
-  ],
+// ----------------- 3. MAPPING -----------------
+// This object connects the skill name (string) to the icon component (JSX)
+const SKILL_ICON_MAP: Record<string, JSX.Element> = {
+  'Python': <PythonIcon />,
+  'C++': <CppIcon />,
+  'Java': <JavaIcon />,
+  'TypeScript': <TypeScriptIcon />,
+  'MATLAB': <MatlabIcon />,
+  'React': <ReactIcon />,
+  'Next.js': <NextjsIcon />,
+  'Tailwind CSS': <TailwindIcon />,
+  'Node.js': <NodeIcon />,
+  'Express': <ExpressIcon />,
+  'ROS/ROS2': <RosIcon />,
+  'Tensorflow': <TensorflowIcon />,
+  'Pytorch': <PytorchIcon />,
+  'PostgreSQL': <PostgresIcon />,
+  'MongoDB': <MongoIcon />,
+  'Git & GitHub': <GithubIcon />,
+  'Docker': <DockerIcon />,
+  'Linux': <LinuxIcon />,
+  'CARLA': <CarlaIcon />,
+  'Nvidia Isaac Sim': <IsaacSimIcon />,
+  'AVL Scenario Simulator': <SimulationIcon />,
+  'SolidWorks': <SolidworksIcon />,
+  'Fusion 360': <FusionIcon />,
 };
 
 // ----------------- COMPONENT -----------------
@@ -109,12 +92,13 @@ const Skills: React.FC = () => {
           ))}
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+          {/* We now use the SKILL_ICON_MAP to find the right icon */}
           {skillsToShow.map((skill) => (
             <div
               key={skill.name}
               className="bg-slate-800 p-6 rounded-lg flex flex-col items-center justify-center gap-4 transition-transform duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/10"
             >
-              {skill.icon}
+              {SKILL_ICON_MAP[skill.name]} {/* <-- This is the key change */}
               <span className="text-center font-medium text-slate-300">{skill.name}</span>
             </div>
           ))}
