@@ -86,7 +86,7 @@ const Chatbot: React.FC = () => {
         
         setMessages(currentMessages => {
           const lastMessage = currentMessages[currentMessages.length - 1];
-          const updatedLastMessage = { ...lastMessage, text: lastMessage.text + chunk };
+          const updatedLastMessage = { ...lastMessage, text: lastMessage.text + parsedText };
           return [...currentMessages.slice(0, -1), updatedLastMessage];
         });
       }
