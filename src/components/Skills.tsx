@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SKILLS, SkillCategory } from '../data/SkillsData';
+import { SKILLS, SkillCategory } from '../../api/data/SkillsData';
 
 // ----------------- 2. ICONS -----------------
 // All icon components are now defined in the component file

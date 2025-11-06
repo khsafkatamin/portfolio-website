@@ -2,8 +2,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { GoogleGenAI } from '@google/genai';
 
-import { SKILLS } from '../src/data/SkillsData.ts';
-import { TIMELINE_DATA } from '../src/data/TimelineData.ts';
+import { SKILLS } from './data/SkillsData';
+import { TIMELINE_DATA } from './data/TimelineData';
 
 // Vercel exports a handler function
 export default async function handler(req: VercelRequest, res: VercelResponse) {

@@ -1,6 +1,6 @@
 import React from 'react'; // Added React import
 import { Briefcase, GraduationCap } from 'lucide-react';
-import { TIMELINE_DATA, TimelineItem } from '../data/TimelineData';
+import { TIMELINE_DATA, TimelineItem } from '../../api/data/TimelineData';
 
 const Timeline = () => {
   // The data is now imported, not defined here
