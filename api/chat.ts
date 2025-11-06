@@ -1,5 +1,6 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { supabase } from '../src/lib/supabase';
 import { GoogleGenAI } from '@google/genai';
 
 import { SKILLS } from './data/SkillsData.js';
@@ -20,6 +21,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.GEM_API_KEY });
 
+    // Fetch projects
+    const { data: projects } = await supabase.from('projects').select(`
+      id,
+      title,
+      description,
+      image_url,
+      demo_url,
+      github_url
+    `);
+
     // Construct a system instruction with portfolio context
     const portfolioContext = `
       You are Safkat's friendly and professional portfolio assistant.
@@ -33,6 +44,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       EXPERIENCE & EDUCATION:
       ${JSON.stringify(TIMELINE_DATA, null, 2)}
+
+      PROJECTS:
+      ${JSON.stringify(projects ?? [], null, 2)}
     `;
 
     const model = 'gemini-2.5-flash';
