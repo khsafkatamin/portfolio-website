@@ -74,6 +74,15 @@ const Chatbot: React.FC = () => {
         const { value, done: readerDone } = await reader.read();
         done = readerDone;
         const chunk = decoder.decode(value, { stream: !done });
+
+        // Try to parse if it's JSON
+        let parsedText = chunk;
+        try {
+        const json = JSON.parse(chunk);
+        if (json.text) parsedText = json.text;
+        } catch {
+        // ignore if it's not valid JSON (some APIs send plain text chunks)
+        }
         
         setMessages(currentMessages => {
           const lastMessage = currentMessages[currentMessages.length - 1];
