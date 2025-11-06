@@ -25,6 +25,16 @@ const Chatbot: React.FC = () => {
       scrollToBottom();
     }
   }, [messages, isOpen]);
+  
+  useEffect(() => {
+    if (isOpen) {
+      // Use a short timeout to ensure the input is visible after the transition before focusing
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
+    }
+  }, [isOpen]);
+
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -40,6 +50,9 @@ const Chatbot: React.FC = () => {
     setInputValue('');
     setIsLoading(true);
 
+    // Add a placeholder for the bot's streaming response
+    setMessages(prev => [...prev, { sender: 'bot', text: '' }]);
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -49,19 +62,36 @@ const Chatbot: React.FC = () => {
         body: JSON.stringify({ messages: newMessages }),
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      if (!response.ok || !response.body) {
+        throw new Error('Network response was not ok or body is missing.');
       }
       
-      const data = await response.json();
-      
-      const botResponse: Message = { sender: 'bot', text: data.text };
-      setMessages(prev => [...prev, botResponse]);
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        done = readerDone;
+        const chunk = decoder.decode(value, { stream: !done });
+        
+        setMessages(currentMessages => {
+          const lastMessage = currentMessages[currentMessages.length - 1];
+          const updatedLastMessage = { ...lastMessage, text: lastMessage.text + chunk };
+          return [...currentMessages.slice(0, -1), updatedLastMessage];
+        });
+      }
 
     } catch (error) {
       console.error('Error fetching chat response:', error);
-      const errorResponse: Message = { sender: 'bot', text: "Sorry, I'm having trouble connecting right now. Please try again later." };
-      setMessages(prev => [...prev, errorResponse]);
+       setMessages(prev => {
+        const lastMessage = prev[prev.length - 1];
+        if (lastMessage.sender === 'bot' && lastMessage.text === '') {
+            const errorResponse: Message = { sender: 'bot', text: "Sorry, I'm having trouble connecting right now. Please try again later." };
+            return [...prev.slice(0, -1), errorResponse];
+        }
+        return prev;
+      });
     } finally {
       setIsLoading(false);
     }
@@ -99,11 +129,11 @@ const Chatbot: React.FC = () => {
                     : 'bg-slate-600 text-slate-200 rounded-bl-none'
                 }`}
               >
-                <p className="text-sm">{msg.text}</p>
+                <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
               </div>
             </div>
           ))}
-          {isLoading && (
+          {isLoading && messages[messages.length - 1]?.text === '' && (
              <div className="flex justify-start">
                 <div className="max-w-xs px-4 py-2 rounded-lg bg-slate-600 text-slate-200 rounded-bl-none">
                     <div className="flex items-center space-x-1">
