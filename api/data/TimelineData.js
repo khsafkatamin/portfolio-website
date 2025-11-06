@@ -1,15 +1,7 @@
-export interface TimelineItem {
-  type: 'education' | 'experience';
-  title: string;
-  organization: string;
-  organizationLink?: string; // <-- We add this optional field
-  period: string;
-  description: string;
-  achievements?: string[];
-}
+
 
 // We export the data as a constant
-export const TIMELINE_DATA: TimelineItem[] = [
+export const TIMELINE_DATA = [
   {
     type: 'experience',
     title: 'Master Thesis Student',

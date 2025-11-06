@@ -1,14 +1,5 @@
-export type SkillCategory =
-  | 'Programming Languages'
-  | 'Frontend'
-  | 'Backend'
-  | 'AI & Robotics'
-  | 'Databases'
-  | 'Tools & DevOps'
-  | 'Simulation'
-  | 'CAD';
 
-export const SKILLS: { [key in SkillCategory]: { name: string }[] } = {
+export const SKILLS = {
   'Programming Languages': [
     { name: 'Python' },
     { name: 'C++' },
