@@ -29,7 +29,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
+    <section id="contact" className="py-20 bg-gray-800">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-8">
           Get In Touch
@@ -87,7 +87,7 @@ const Contact = () => {
       <footer className="mt-20 pt-8 border-t border-gray-800">
         <div className="container mx-auto px-6">
           <div className="text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Kh Safkat Amin. All rights reserved.</p>
           </div>
         </div>
       </footer>

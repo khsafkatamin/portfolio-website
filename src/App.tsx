@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Skills from './components/Skills';
 import Timeline from './components/Timeline';
 import Projects from './components/Projects';
 import ProjectModal from './components/ProjectModal';
 import Contact from './components/Contact';
+import Chatbot from './components/Chatbot';
 import { Project } from './lib/supabase';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
     <div className="min-h-screen bg-gray-900">
       <Navigation />
       <Hero />
+      <Skills />
       <Timeline />
       <Projects onProjectClick={handleProjectClick} />
       <Contact />
@@ -33,6 +36,7 @@ function App() {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
       />
+      <Chatbot />
     </div>
   );
 }

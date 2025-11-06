@@ -83,7 +83,7 @@ const Projects = ({ onProjectClick }: ProjectsProps) => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gray-800">
+    <section id="projects" className="py-20 sm:py-32 bg-slate-900">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-8">
           Featured Projects
