@@ -34,7 +34,8 @@ const Navigation = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'timeline', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
+    { id: 'resume', label: 'Resume', href: '/resume.pdf' }
   ];
 
   return (
@@ -54,13 +55,25 @@ const Navigation = () => {
 
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
-              >
-                {item.label}
-              </button>
+              item.href ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors font-medium"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-gray-300 hover:text-white transition-colors font-medium"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
           </div>
 
@@ -74,15 +87,28 @@ const Navigation = () => {
 
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 py-4 space-y-4 bg-gray-800/95 rounded-lg px-4">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors font-medium py-2"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.href ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-left text-gray-300 hover:text-white transition-colors font-medium py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="block w-full text-left text-gray-300 hover:text-white transition-colors font-medium py-2"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
         )}
       </div>
