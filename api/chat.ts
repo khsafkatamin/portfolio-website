@@ -1,6 +1,6 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { supabase } from '../src/lib/supabase';
+import { supabase } from '../src/lib/supabase.js';
 import { GoogleGenAI } from '@google/genai';
 
 import { SKILLS } from './data/SkillsData.js';
