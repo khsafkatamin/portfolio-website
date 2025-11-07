@@ -34,6 +34,7 @@ const SolidworksIcon = () => <img src="https://upload.wikimedia.org/wikipedia/en
 const FusionIcon = () => <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Fusion360_Logo.svg/1024px-Fusion360_Logo.svg.png" alt="Fusion 360 Logo" className="w-8 h-8 object-contain" />;
 const CarlaIcon = () => <img src="https://carla.org//img/logo/carla-black-m.png" alt="CARLA Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(2.0)' }} />;
 const IsaacSimIcon = () => <img src="https://assets.nvidiagrid.net/ngc/logos/Isaac.png" alt="NVIDIA Isaac Sim Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(3.0)' }} />;
+const JavaScriptIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript Logo" className="w-8 h-8 object-contain" />;
 
 // ----------------- 3. MAPPING -----------------
 // This object connects the skill name (string) to the icon component (JSX)
@@ -41,6 +42,7 @@ const SKILL_ICON_MAP: Record<string, JSX.Element> = {
   'Python': <PythonIcon />,
   'C++': <CppIcon />,
   'Java': <JavaIcon />,
+  'JavaScript': <JavaScriptIcon />,
   'TypeScript': <TypeScriptIcon />,
   'MATLAB': <MatlabIcon />,
   'React': <ReactIcon />,

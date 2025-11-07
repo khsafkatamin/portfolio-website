@@ -4,6 +4,7 @@ export const SKILLS = {
     { name: 'Python' },
     { name: 'C++' },
     { name: 'Java' },
+    { name: 'JavaScript' },
     { name: 'TypeScript' },
     { name: 'MATLAB' },
   ],
