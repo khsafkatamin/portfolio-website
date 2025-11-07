@@ -35,6 +35,13 @@ const Chatbot: React.FC = () => {
     }
   }, [isOpen]);
 
+  // Focus input after each message, so user can keep typing
+  useEffect(() => {
+    if (isOpen) {
+        inputRef.current?.focus();
+    }
+    }, [messages, isOpen]);
+
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
