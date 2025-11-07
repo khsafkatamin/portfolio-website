@@ -16,8 +16,8 @@ const ReactIcon = () => <img src="https://raw.githubusercontent.com/devicons/dev
 const TypeScriptIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript Logo" className="w-8 h-8 object-contain" />;
 const TailwindIcon = () => <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS Logo" className="w-8 h-8 object-contain" />;
 const PostgresIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL Logo" className="w-8 h-8 object-contain" />;
-const NextjsIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" className="w-8 h-8 object-contain invert dark:invert-0" />;
-const ExpressIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express Logo" className="w-8 h-8 object-contain invert dark:invert-0" />;
+const NextjsIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" className="w-8 h-8 object-contain invert dark:invert-0" style={{ transform: 'scale(2.0)' }} />;
+const ExpressIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express Logo" className="w-8 h-8 object-contain invert dark:invert-0" style={{ transform: 'scale(2.0)' }} />;
 const JavaIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java Logo" className="w-8 h-8 object-contain" />;
 const MatlabIcon = () => <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB Logo" className="w-8 h-8 object-contain" />;
 const GithubIcon = () => <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GitHub Logo" className="w-8 h-8 object-contain" />;
@@ -26,11 +26,11 @@ const RosIcon = () => <img src="https://raw.githubusercontent.com/devicons/devic
 const NodeIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js Logo" className="w-8 h-8 object-contain" />;
 const PytorchIcon = () => <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="PyTorch Logo" className="w-8 h-8 object-contain" />;
 const MongoIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(1.8)' }} />;
-const DockerIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker Logo" className="w-8 h-8 object-contain" />;
+const DockerIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(1.3)' }} />;
 const TensorflowIcon = () => <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="TensorFlow Logo" className="w-8 h-8 object-contain" />;
 const CppIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++ Logo" className="w-8 h-8 object-contain" />;
 const PythonIcon = () => <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python Logo" className="w-8 h-8 object-contain" />;
-const SolidworksIcon = () => <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/SolidWorks_Logo.svg/150px-SolidWorks_Logo.svg.png?20130509090050" alt="SolidWorks Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(2.0)' }} />;
+const SolidworksIcon = () => <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/SolidWorks_Logo.svg/150px-SolidWorks_Logo.svg.png?20130509090050" alt="SolidWorks Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(2.2)' }} />;
 const FusionIcon = () => <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Fusion360_Logo.svg/1024px-Fusion360_Logo.svg.png" alt="Fusion 360 Logo" className="w-8 h-8 object-contain" />;
 const CarlaIcon = () => <img src="https://carla.org//img/logo/carla-black-m.png" alt="CARLA Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(2.0)' }} />;
 const IsaacSimIcon = () => <img src="https://assets.nvidiagrid.net/ngc/logos/Isaac.png" alt="NVIDIA Isaac Sim Logo" className="w-8 h-8 object-contain" style={{ transform: 'scale(3.0)' }} />;

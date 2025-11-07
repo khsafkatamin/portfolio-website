@@ -13,7 +13,7 @@ export const TIMELINE_DATA = [
       'Tested and validated the harmonization framework with three real-world public datasets',
       'Enriched behavioral data with environmental context information',
       'Detected over 43K maneuvers and 300K vehicle-to-vehicle (V2V) interaction scenarios',
-      'Achieved a top grade (1.0) for the thesis work'
+      'Achieved a top grade (1.0/1.0) for the thesis work'
     ]
   },
   {
@@ -37,7 +37,7 @@ export const TIMELINE_DATA = [
     period: '2021 - 2025',
     description: 'Specialized in Automated Driving',
     achievements: [
-      'GPA: 2.1 (Good, German system)',
+      'GPA: 2.1/1.0',
       'Knowledge Areas: Automated and Connected Driving, ADAS, Control Engineering, Mechatronics'
     ]
   },
@@ -63,7 +63,7 @@ export const TIMELINE_DATA = [
     achievements: [
       'GPA: 3.03/4.0',
       '2nd place in a microcontroller-based project competition',
-      'President of university blood donor organization'
+      'President for 1 year of a university blood donor organization'
     ]
   }
 ];
