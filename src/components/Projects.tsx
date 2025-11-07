@@ -137,12 +137,12 @@ const Projects = ({ onProjectClick }: ProjectsProps) => {
                 <p className="text-gray-400 mb-4 line-clamp-2">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.categories?.slice(0, 3).map((category) => (
+                  {project.technologies?.slice(0, 4).map((tech: string, index: number) => (
                     <span
-                      key={category.id}
-                      className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full"
+                      key={index}
+                      className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full"
                     >
-                      {category.name}
+                      {tech}
                     </span>
                   ))}
                 </div>
