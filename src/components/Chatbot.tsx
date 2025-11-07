@@ -124,7 +124,7 @@ const Chatbot: React.FC = () => {
       </button>
 
       <div
-        className={`fixed bottom-28 right-8 w-full max-w-sm bg-slate-800 rounded-lg shadow-2xl border border-slate-700 z-50 transition-all duration-300 ease-in-out ${
+        className={`fixed bottom-4 right-4 sm:bottom-28 sm:right-8 w-[calc(100%-2rem)] sm:w-full max-w-sm bg-slate-800 rounded-lg shadow-2xl border border-slate-700 z-50 transition-all duration-300 ease-in-out ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
@@ -135,7 +135,7 @@ const Chatbot: React.FC = () => {
           </button>
         </div>
 
-        <div className="p-4 h-80 overflow-y-auto">
+        <div className="p-4 max-h-[60vh] sm:h-80 overflow-y-auto">
           {messages.map((msg, index) => (
             <div key={index} className={`flex mb-4 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div
