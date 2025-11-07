@@ -1,13 +1,10 @@
-
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { supabase } from './lib/supabase.js';
 import { GoogleGenAI } from '@google/genai';
-
 import { SKILLS } from './data/SkillsData.js';
 import { TIMELINE_DATA } from './data/TimelineData.js';
 
 // Vercel exports a handler function
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
