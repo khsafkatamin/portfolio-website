@@ -23,6 +23,8 @@ export default async function handler(req: any, res: any) {
       id,
       title,
       description,
+      detailed_description,
+      technologies,
       image_url,
       demo_url,
       github_url
