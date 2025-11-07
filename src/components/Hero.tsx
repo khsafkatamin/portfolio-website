@@ -31,12 +31,12 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Software Developer & AI Enthusiast
+            Engineer & Tech Enthusiast
           </p>
 
           <p className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
-            Exploring the future of AI — from Generative and Agentic intelligence to smart robotics.
-            Experienced in automated driving systems, computer vision, and intelligent software development.
+            Exploring opportunities in tech development — from AI and autonomous systems to innovative software. 
+            Passionate about learning new technologies and building impactful solutions.
           </p>
 
           <div className="flex justify-center space-x-6 mb-12">
