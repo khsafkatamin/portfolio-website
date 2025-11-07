@@ -70,12 +70,12 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
           {project.categories && project.categories.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
-              {project.categories.map((category) => (
+              {project.technologies.map((tech: string, index: number) => (
                 <span
-                  key={category.id}
+                  key={index}
                   className="px-4 py-2 bg-blue-500/20 text-blue-400 text-sm rounded-full font-medium"
                 >
-                  {category.name}
+                  {tech}
                 </span>
               ))}
             </div>
