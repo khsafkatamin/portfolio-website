@@ -140,7 +140,7 @@ const Projects = ({ onProjectClick }: ProjectsProps) => {
                   {project.technologies?.slice(0, 4).map((tech: string, index: number) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full"
+                      className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full"
                     >
                       {tech}
                     </span>
