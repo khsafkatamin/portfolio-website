@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, X } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 export interface Message {
   sender: 'user' | 'bot';
@@ -145,7 +146,7 @@ const Chatbot: React.FC = () => {
                     : 'bg-slate-600 text-slate-200 rounded-bl-none'
                 }`}
               >
-                <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
+                <ReactMarkdown className="text-sm whitespace-pre-wrap">{msg.text}</ReactMarkdown>
               </div>
             </div>
           ))}
